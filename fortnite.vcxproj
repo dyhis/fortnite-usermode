@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="release-x64|x64">
+      <Configuration>release-x64</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release-x64|Win32">
+      <Configuration>release-x64</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{a706123e-a296-4b23-9c34-be30a28e1a02}</ProjectGuid>
+    <RootNamespace>cumbersome</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>fortnite</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release-x64|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release-x64|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='release-x64|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='release-x64|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release-x64|x64'">
+    <IncludePath>../fortnite-ext;$(IncludePath)</IncludePath>
+    <OutDir>..\fn-bin\</OutDir>
+    <IntDir>..\fn-bin\obj\</IntDir>
+    <TargetName>Fortnite</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release-x64|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release-x64|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <AdditionalIncludeDirectories>../fortnite-ext/dep</AdditionalIncludeDirectories>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <ExceptionHandling>false</ExceptionHandling>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d11.lib;ntdll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+      <RegisterOutput>false</RegisterOutput>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="dep\config\config.cpp" />
+    <ClCompile Include="dep\imgui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="dep\imgui\imgui_impl_win32.cpp" />
+    <ClCompile Include="dep\imgui\imgui.cpp" />
+    <ClCompile Include="dep\imgui\imgui_draw.cpp" />
+    <ClCompile Include="dep\imgui\imgui_tables.cpp" />
+    <ClCompile Include="dep\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="dep\kernel\kernel.cpp" />
+    <ClCompile Include="dep\input\input.cpp" />
+    <ClCompile Include="dep\Security\Encryption\oxorany.cpp" />
+    <ClCompile Include="impl\cheat\triggerbot\triggerbot.cpp" />
+    <ClCompile Include="impl\render\menu\menu.cpp" />
+    <ClCompile Include="impl\render\render.cpp" />
+    <ClCompile Include="impl\cheat\visuals\visuals.cpp" />
+    <ClCompile Include="impl\uengine\uengine.cpp" />
+    <ClCompile Include="impl\updater\ext\engine.cpp" />
+    <ClCompile Include="impl\updater\ext\entities.cpp" />
+    <ClCompile Include="impl\updater\ext\enviroment.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="dep\cacher.hpp" />
+    <ClInclude Include="dep\config\config.hpp" />
+    <ClInclude Include="dep\crt.h" />
+    <ClInclude Include="dep\ext\lazy.h" />
+    <ClInclude Include="dep\imgui\fonts\poppins.h" />
+    <ClInclude Include="dep\imgui\imgui_impl_dx11.h" />
+    <ClInclude Include="dep\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="dep\imgui\imgui.h" />
+    <ClInclude Include="dep\imgui\imgui_internal.h" />
+    <ClInclude Include="dep\imgui\imstb_rectpack.h" />
+    <ClInclude Include="dep\imgui\imstb_textedit.h" />
+    <ClInclude Include="dep\imgui\imstb_truetype.h" />
+    <ClInclude Include="dep\kernel\kernel.hpp" />
+    <ClInclude Include="dep\kernel\ntdef.hpp" />
+    <ClInclude Include="dep\safeguard.hpp" />
+    <ClInclude Include="dep\sdk\vxlib.h" />
+    <ClInclude Include="dep\Security\Encryption\oxorany_include.h" />
+    <ClInclude Include="dep\Security\Encryption\oxorany.h" />
+    <ClInclude Include="dep\shadow_syscall.hpp" />
+    <ClInclude Include="dep\ui\keybinds.hpp" />
+    <ClInclude Include="dep\ui\widgets.h" />
+    <ClInclude Include="general.hpp" />
+    <ClInclude Include="impl\cheat\triggerbot\triggerbot.hpp" />
+    <ClInclude Include="impl\globals.hpp" />
+    <ClInclude Include="dep\input\input.hpp" />
+    <ClInclude Include="impl\render\menu\menu.hpp" />
+    <ClInclude Include="impl\render\render.hpp" />
+    <ClInclude Include="impl\cheat\visuals\visuals.hpp" />
+    <ClInclude Include="impl\uengine\ext\game.hpp" />
+    <ClInclude Include="impl\uengine\ext\math.h" />
+    <ClInclude Include="impl\uengine\uengine.hpp" />
+    <ClInclude Include="impl\updater\updater.hpp" />
+    <ClInclude Include="nlohmann\detail\conversions\from_json.hpp" />
+    <ClInclude Include="nlohmann\detail\conversions\to_chars.hpp" />
+    <ClInclude Include="nlohmann\detail\conversions\to_json.hpp" />
+    <ClInclude Include="nlohmann\detail\input\binary_reader.hpp" />
+    <ClInclude Include="nlohmann\detail\input\input_adapters.hpp" />
+    <ClInclude Include="nlohmann\detail\input\json_sax.hpp" />
+    <ClInclude Include="nlohmann\detail\input\lexer.hpp" />
+    <ClInclude Include="nlohmann\detail\input\parser.hpp" />
+    <ClInclude Include="nlohmann\detail\input\position_t.hpp" />
+    <ClInclude Include="nlohmann\detail\iterators\internal_iterator.hpp" />
+    <ClInclude Include="nlohmann\detail\iterators\iteration_proxy.hpp" />
+    <ClInclude Include="nlohmann\detail\iterators\iterator_traits.hpp" />
+    <ClInclude Include="nlohmann\detail\iterators\iter_impl.hpp" />
+    <ClInclude Include="nlohmann\detail\iterators\json_reverse_iterator.hpp" />
+    <ClInclude Include="nlohmann\detail\iterators\primitive_iterator.hpp" />
+    <ClInclude Include="nlohmann\detail\meta\call_std\begin.hpp" />
+    <ClInclude Include="nlohmann\detail\meta\call_std\end.hpp" />
+    <ClInclude Include="nlohmann\detail\meta\cpp_future.hpp" />
+    <ClInclude Include="nlohmann\detail\meta\detected.hpp" />
+    <ClInclude Include="nlohmann\detail\meta\identity_tag.hpp" />
+    <ClInclude Include="nlohmann\detail\meta\is_sax.hpp" />
+    <ClInclude Include="nlohmann\detail\meta\std_fs.hpp" />
+    <ClInclude Include="nlohmann\detail\meta\type_traits.hpp" />
+    <ClInclude Include="nlohmann\detail\meta\void_t.hpp" />
+    <ClInclude Include="nlohmann\detail\output\binary_writer.hpp" />
+    <ClInclude Include="nlohmann\detail\output\output_adapters.hpp" />
+    <ClInclude Include="nlohmann\detail\output\serializer.hpp" />
+    <ClInclude Include="nlohmann\detail\string_escape.hpp" />
+    <ClInclude Include="nlohmann\detail\string_utils.hpp" />
+    <ClInclude Include="nlohmann\detail\value_t.hpp" />
+    <ClInclude Include="nlohmann\thirdparty\hedley\hedley.hpp" />
+    <ClInclude Include="nlohmann\thirdparty\hedley\hedley_undef.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
